@@ -1,0 +1,143 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import Faq from '../components/Faq.astro';
+import Photo from '../components/Photo.astro';
+import { site } from '../data/site';
+import { services } from '../data/services';
+
+
+const faq = [
+  {
+    q: 'Waar werkt LDI Solutions?',
+    a: 'Vanuit Kortijs, een deelgemeente van Gingelom, voor particulieren en bedrijven in Gingelom en de gemeenten errond. Twijfelt u of uw adres binnen ons werkgebied valt? <a href="/contact/#formulier">Vraag het even</a>.',
+  },
+  {
+    q: 'Wie komt het werk uitvoeren?',
+    a: 'Zaakvoerder Lawrence Dirix voert de projecten zelf uit. Met wie u het plan bespreekt, is ook wie de kabels trekt en de installatie oplevert.',
+  },
+  {
+    q: 'Kan ik een deel van het werk zelf doen?',
+    a: 'Ja. Met <a href="/zelfbouw-met-begeleiding/">zelfbouw met begeleiding</a> plaatst u zelf zonnepanelen, een thuisbatterij, een laadpaal of een deel van uw elektriciteit. Wij voorzien materiaal, uitleg en controle.',
+  },
+  {
+    q: 'Werkt LDI Solutions ook voor bedrijven?',
+    a: 'Ja, ook voor kantoren en bedrijfspanden. Bij de <a href="/realisaties/">realisaties</a> staat onder meer een installatie op het dak van een loods.',
+  },
+];
+---
+<Base
+  title="Elektricien in Gingelom"
+  description="Elektricien in Kortijs (Gingelom) voor elektriciteitswerken, zonnepanelen, thuisbatterijen, laadpalen en domotica. Zaakvoerder Lawrence voert alles zelf uit."
+>
+  <section class="board-hero">
+    <div class="board-photo">
+      <Photo file="zonnepanelen-pannendak-2.jpg" alt="Zwarte zonnepanelen op een pannendak" eager sizes="100vw" />
+    </div>
+    <div class="wrap board-wrap">
+      <div class="board">
+        <p class="board-top">Elektriciteit · Zonnepanelen · Thuisbatterijen · Laadpalen</p>
+        <h1>Elektricien in Gingelom</h1>
+        <p class="board-lead">
+          LDI Solutions legt elektriciteit aan, plaatst zonnepanelen en thuisbatterijen en hangt laadpalen op, voor
+          woningen en bedrijven.
+        </p>
+        <dl class="board-fields">
+          <div><dt>Uitvoerder</dt><dd>Lawrence Dirix, elektricien</dd></div>
+          <div><dt>Adres</dt><dd>{site.street}, {site.postalCode} {site.locality}</dd></div>
+          <div><dt>Telefoon</dt><dd><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn" href="/contact/#formulier">Vraag een vrijblijvend gesprek</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="wrap flow-wrap">
+      <div class="reveal">
+        <h2 style="margin-top:0">Alles hangt aan dezelfde groepenkast</h2>
+        <p>
+          Zonnepanelen, een thuisbatterij en een laadpaal hangen allemaal aan dezelfde elektrische installatie. Wie vandaag panelen legt en volgend jaar elektrisch gaat rijden, wil dat de omvormer, de groepenkast en de
+          laadpaal met elkaar overweg kunnen.
+        </p>
+        <ul class="flow-list">
+          <li><strong>Overdag</strong> gaat de zonnestroom eerst naar wat in huis draait.</li>
+          <li><strong>Het overschot</strong> laadt de batterij of de wagen.</li>
+          <li><strong>'s Avonds</strong> haalt u stroom uit de batterij in plaats van uit het net.</li>
+        </ul>
+        <p style="margin-top:1em">Daarom bekijken we het geheel, ook als u vandaag maar één stuk laat plaatsen.</p>
+      </div>
+      <div class="flow reveal">
+        <svg viewBox="0 0 640 430" role="img" aria-labelledby="flow-title">
+          <title id="flow-title">Schema: zonnepanelen leveren stroom aan de omvormer, die verdeelt naar de groepenkast, de thuisbatterij en de laadpaal</title>
+          <path class="wire" d="M120 106 V208 H240" /><path class="current" d="M120 106 V208 H240" />
+          <path class="wire" d="M400 208 H470 V106" /><path class="current" d="M400 208 H470 V106" />
+          <path class="wire" d="M320 246 V348 H200" /><path class="current" d="M320 246 V348 H200" />
+          <path class="wire" d="M560 106 V310" /><path class="current" d="M560 106 V310" />
+          <a class="node" href="/zonnepanelen/"><rect x="40" y="30" width="160" height="76" rx="14" /><text x="62" y="64"><tspan class="ico">☀</tspan> Zonnepanelen</text><text class="sub" x="62" y="88">wekken op</text></a>
+          <g class="node"><rect x="240" y="170" width="160" height="76" rx="14" style="fill:var(--forest)" /><text x="262" y="204" style="fill:#fff">Omvormer</text><text class="sub" x="262" y="228" style="fill:#c7d6cb">zet om en verdeelt</text></g>
+          <a class="node" href="/elektriciteitswerken/"><rect x="440" y="30" width="180" height="76" rx="14" /><text x="462" y="64">Groepenkast</text><text class="sub" x="462" y="88">voedt uw woning</text></a>
+          <a class="node" href="/thuisbatterij/"><rect x="40" y="310" width="160" height="76" rx="14" /><text x="62" y="344">Thuisbatterij</text><text class="sub" x="62" y="368">bewaart het overschot</text></a>
+          <a class="node" href="/laadpaal/"><rect x="460" y="310" width="160" height="76" rx="14" /><text x="482" y="344">Laadpaal</text><text class="sub" x="482" y="368">laadt uw wagen</text></a>
+          <text x="248" y="290" style="font:600 13px var(--body);fill:var(--green)">slimme sturing beslist</text>
+          <text x="248" y="308" style="font:600 13px var(--body);fill:var(--green)">wie wanneer stroom krijgt</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Onze diensten</h2>
+      <ul class="rows">
+        {services.map((s) => (
+          <li class="row reveal">
+            <a href={s.href}>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <span class="thumb"><Photo file={s.img} alt={s.alt} sizes="150px" /></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="reveal">
+        <h2 style="margin-top:0">Lawrence voert het werk zelf uit</h2>
+        <p>
+          Bij LDI Solutions staat de zaakvoerder zelf op de werf. Lawrence Dirix is erbij van de eerste meting tot de
+          oplevering, en kijkt elk detail na voor hij vertrekt.
+        </p>
+        <p>
+          Hebt u later een vraag over uw installatie, dan belt u naar wie ze heeft aangelegd.
+          <a href="/over-ons/">Meer over Lawrence</a>.
+        </p>
+      </div>
+      <div class="reveal">
+        <Photo file="thuisbatterij-technische-ruimte.jpg" alt="Omvormer en thuisbatterij in een technische ruimte" sizes="(min-width: 900px) 540px, 100vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Recent werk</h2>
+      <p>Foto's van de werf, zonder retouche. Klik om te vergroten.</p>
+      <Gallery limit={8} />
+      <p class="actions"><a class="btn btn-ghost" href="/realisaties/">Alle realisaties</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow">
+      <Faq items={faq} />
+    </div>
+  </section>
+
+</Base>

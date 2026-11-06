@@ -1,0 +1,63 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import Photo from '../components/Photo.astro';
+
+const faq = [
+  {
+    q: 'Kan ik mijn wagen laden met mijn eigen zonnestroom?',
+    a: 'Ja, als de laadpaal en uw zonne-installatie via een slimme sturing samenwerken. De wagen laadt dan bij voorkeur wanneer uw panelen stroom opwekken. Lees ook over <a href="/zonnepanelen/">zonnepanelen laten plaatsen</a>.',
+  },
+  {
+    q: 'Mag ik een laadpaal zelf plaatsen?',
+    a: 'Met begeleiding wel. We helpen u de juiste laadpaal kiezen en zorgen dat de aansluiting aan de veiligheidsnormen voldoet. Zie <a href="/zelfbouw-met-begeleiding/">zelfbouw met begeleiding</a>.',
+  },
+];
+---
+<ServiceLayout
+  topic="laadpaal"
+  title="Laadpaal thuis laten installeren"
+  description="Een laadpaal thuis voor uw elektrische wagen, veilig aangesloten en gekoppeld aan uw zonnepanelen. LDI Solutions uit Gingelom plaatst en begeleidt."
+  crumb="Laadpaal"
+  h1="Een laadpaal thuis laten installeren"
+  lead="Met een laadpaal thuis laadt u uw elektrische wagen veilig en op uw eigen tempo. LDI Solutions plaatst de laadpaal, sluit ze correct aan op uw installatie en koppelt ze waar mogelijk aan uw zonnepanelen."
+  heroImg="laadpaal-wallbox.jpg"
+  heroAlt="Growatt-laadpaal met LDI Solutions-sticker aan de muur"
+  cta="Vraag advies over een laadpaal"
+  highlights={['Correct aangesloten op uw groepenkast', 'Laden op eigen zonnestroom', 'Volgens de veiligheidsnormen']}
+  galleryCats={['laadpaal']}
+  galleryTitle="Laadpalen die we geplaatst hebben"
+  faq={faq}
+>
+  <h2>De juiste laadpaal voor uw woning</h2>
+  <p>
+    Een laadpaal is een flinke verbruiker. Daarom kijken we eerst naar uw bestaande
+    <a href="/elektriciteitswerken/">elektrische installatie</a>: is er plaats in de groepenkast, waar komt de laadpaal
+    het best, en hoe loopt de kabel? Pas daarna kiezen we samen een laadpaal die past bij uw wagen en uw gebruik.
+  </p>
+
+  <h2>Laden op zonnestroom</h2>
+  <p>
+    Hebt u <a href="/zonnepanelen/">zonnepanelen</a>, dan wilt u uw wagen liefst laden wanneer de zon schijnt. Met een
+    slimme sturing stemt de laadpaal zich af op wat uw panelen opwekken en op wat de rest van het huis op dat moment
+    verbruikt. Hebt u ook een <a href="/thuisbatterij/">thuisbatterij</a>, dan nemen we die mee in de afstemming.
+  </p>
+
+  <div class="svc-photos">
+    <figure><Photo file="laadpaal-buitenmuur.jpg" alt="Laadpaal met laadkabel aan een bakstenen tuinmuur" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Buiten, aan de tuinmuur</figcaption></figure>
+    <figure><Photo file="laadpaal-wallbox.jpg" alt="Growatt-laadpaal met LDI Solutions-sticker aan de muur" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Binnen, aan de muur</figcaption></figure>
+  </div>
+
+  <div class="callout">
+    <h3>Waarom slim laden in Vlaanderen loont</h3>
+    <p>
+      Sinds 2023 betaalt u in Vlaanderen een capaciteitstarief, dat mee afhangt van uw hoogste verbruikspiek per maand.
+      Een laadpaal die het laden spreidt of afremt wanneer andere toestellen veel vragen, helpt die piek laag te houden.
+    </p>
+  </div>
+
+  <h2>Veilig volgens de normen</h2>
+  <p>
+    We zorgen dat de laadpaal en de aansluiting voldoen aan de geldende veiligheidsnormen. Plaatst u de laadpaal liever
+    zelf, dan begeleiden we u daarbij en controleren we het werk.
+  </p>
+</ServiceLayout>

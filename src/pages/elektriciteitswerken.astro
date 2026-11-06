@@ -1,0 +1,84 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import Photo from '../components/Photo.astro';
+
+const faq = [
+  {
+    q: 'Moet ik meteen een volledig domoticasysteem nemen?',
+    a: 'Nee. Een beperkte toepassing, bijvoorbeeld enkel verlichting en zonwering, is prima. We bekijken samen wat u dagelijks gebruikt en bouwen het zo dat u later kan uitbreiden.',
+  },
+  {
+    q: 'Doet LDI Solutions ook werken in kantoren en bedrijfspanden?',
+    a: 'Ja. We voorzien woningen, kantoren en industriële panden van een elektrische installatie op maat.',
+  },
+];
+---
+<ServiceLayout
+  topic="elektriciteit"
+  title="Elektriciteitswerken en domotica in Gingelom"
+  description="Elektrische installatie vernieuwen, groepenkast uitbreiden, domotica of slimme sturingen? LDI Solutions uit Kortijs (Gingelom) werkt voor woningen en bedrijven."
+  crumb="Elektriciteitswerken"
+  h1="Elektriciteitswerken en domotica in Gingelom"
+  lead="Uw groepenkast moet straks misschien ook zonnepanelen, een thuisbatterij of een laadpaal dragen. LDI Solutions legt uw installatie zo aan dat ze vandaag veilig is en die uitbreidingen later aankan."
+  heroImg="omvormer-kabelgoten.jpg"
+  heroAlt="Omvormer met kabelgoten in een hoek van een berging"
+  cta="Plan een vrijblijvend gesprek"
+  highlights={['Voor woningen, kantoren en bedrijfspanden', 'Volgens de geldende veiligheidsnormen', 'Klaar voor panelen, batterij of laadpaal']}
+  galleryCats={['elektriciteit', 'thuisbatterij']}
+  galleryTitle="Installaties van LDI Solutions"
+  faq={faq}
+>
+  <h2>Traditionele elektriciteit: veilig en volgens de normen</h2>
+  <p>
+    Een installatie vernieuwen, de groepenkast uitbreiden, nieuwe verlichting en stopcontacten, of grote toestellen
+    aansluiten: het gewone werk van een elektricien, uitgevoerd volgens de geldende veiligheidsnormen. Zo hoeft u zich
+    achteraf geen zorgen te maken over de werking of de veiligheid van uw installatie.
+  </p>
+  <p>
+    We kijken daarbij ook naar uw verbruik. Soms levert energiezuinige verlichting of een slimmere indeling van de
+    kringen meer op dan u zou denken. Dat advies zit er standaard bij.
+  </p>
+
+  <div class="svc-photos">
+    <figure><Photo file="omvormer-buitenmuur.jpg" alt="Omvormer en thuisbatterij tegen een bakstenen muur" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Kabels netjes weggewerkt in buizen</figcaption></figure>
+    <figure><Photo file="omvormer-batterij-garagepoort.jpg" alt="Omvormer en thuisbatterij naast een garagepoort" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Omvormer en batterij in een garage</figcaption></figure>
+  </div>
+
+  <h2>Domotica en slimme sturingen</h2>
+  <p>De twee woorden worden vaak door elkaar gebruikt. Het verschil zit in waarvoor u ze inzet.</p>
+  <div class="compare">
+    <div>
+      <h3>Domotica</h3>
+      <p>
+        Gaat over comfort en bediening. Verlichting, verwarming, zonwering en beveiliging bedient u vanaf één plek: uw
+        smartphone, een tablet of met uw stem.
+      </p>
+    </div>
+    <div>
+      <h3>Slimme sturingen</h3>
+      <p>
+        Gaan over energie. Toestellen worden op elkaar afgestemd: de verwarming past zich aan als er iemand in de kamer
+        is, de zonwering reageert op het zonlicht. Dat drukt de energiefactuur.
+      </p>
+    </div>
+  </div>
+  <p>
+    Het kan een volledig systeem zijn, of alleen de verlichting en de rolluiken. We beginnen bij wat u dagelijks
+    gebruikt en bouwen het zo dat u later kan uitbreiden.
+  </p>
+  <div class="callout">
+    <h3>Met zonnepanelen wordt het interessanter</h3>
+    <p>
+      Hebt u <a href="/zonnepanelen/">zonnepanelen</a> of een <a href="/thuisbatterij/">thuisbatterij</a>, dan kan de
+      sturing verbruik verschuiven naar het moment waarop u zelf stroom opwekt.
+    </p>
+  </div>
+
+  <h2>Hoe we werken</h2>
+  <ol class="steps-row">
+    <li><strong>Gesprek en plaatsbezoek</strong> We bekijken uw huidige installatie en wat u ermee wil.</li>
+    <li><strong>Ontwerp</strong> Een voorstel dat past bij uw woning of pand, nu en voor wat later nog komt.</li>
+    <li><strong>Uitvoering</strong> <a href="/over-ons/">Lawrence</a> voert het werk zelf uit en werkt alles netjes af.</li>
+    <li><strong>Controle en oplevering</strong> We testen of alles werkt en op elkaar afgestemd is voor we opleveren.</li>
+  </ol>
+</ServiceLayout>

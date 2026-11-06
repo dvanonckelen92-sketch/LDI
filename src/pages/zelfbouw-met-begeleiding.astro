@@ -1,0 +1,70 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const faq = [
+  {
+    q: 'Welke projecten kan ik zelf doen met begeleiding?',
+    a: 'Zonnepanelen, een thuisbatterij, een laadpaal en elektriciteitswerken zoals bekabeling trekken en toestellen aansluiten. Per project spreken we af welk deel u zelf doet en welk deel wij doen.',
+  },
+  {
+    q: 'Levert LDI Solutions ook het materiaal?',
+    a: 'Ja. We voorzien de nodige materialen en adviseren u over de beste keuzes voor uw situatie.',
+  },
+];
+---
+<ServiceLayout
+  topic="zelfbouw"
+  title="Zonnepanelen zelf plaatsen met begeleiding"
+  description="Zelf zonnepanelen, een thuisbatterij of laadpaal plaatsen met begeleiding van een elektricien? LDI Solutions levert materiaal, uitleg en controle."
+  crumb="Zelfbouw met begeleiding"
+  h1="Zonnepanelen zelf plaatsen, met een elektricien die meekijkt"
+  lead="Wilt u zelf de handen uit de mouwen steken? U plaatst zelf zonnepanelen, een thuisbatterij, een laadpaal of een deel van uw elektriciteit. LDI Solutions zorgt voor het materiaal, duidelijke instructies en begeleiding."
+  heroImg="zonnepanelen-plat-dak.jpg"
+  heroAlt="Zonnepanelen op een plat dak"
+  cta="Bespreek uw zelfbouwproject"
+  highlights={['Materiaal en instructies van ons', 'Begeleiding tijdens het werk', 'Controle voor de keuring']}
+  galleryCats={['zonnepanelen']}
+  galleryTitle="Werk van LDI Solutions"
+  faq={faq}
+>
+  <h2>Wat u zelf kan doen</h2>
+  <p>
+    Zelf meewerken geeft voldoening en kan een project betaalbaarder maken, op voorwaarde dat het veilig en volgens de
+    normen gebeurt. Daar waken wij over.
+  </p>
+  <div class="compare">
+    <div>
+      <h3>Zonnepanelen</h3>
+      <p>U doet het zware werk op het dak. Wij leveren de materialen, de instructies en advies over de beste keuzes voor uw dak en verbruik.</p>
+    </div>
+    <div>
+      <h3>Thuisbatterij</h3>
+      <p>We helpen u kiezen welke <a href="/thuisbatterij/">batterij</a> past en begeleiden de installatie, zodat alles veilig aangesloten is.</p>
+    </div>
+    <div>
+      <h3>Laadpaal</h3>
+      <p>We helpen u de juiste <a href="/laadpaal/">laadpaal</a> kiezen en zorgen dat de aansluiting aan de veiligheidsnormen voldoet.</p>
+    </div>
+    <div>
+      <h3>Elektriciteitswerken</h3>
+      <p>Van bekabeling aanleggen tot toestellen aansluiten, met ons advies, zodat alles volgens de voorschriften gebeurt.</p>
+    </div>
+  </div>
+
+  <h2>Zo verloopt een zelfbouwproject</h2>
+  <ol class="steps-row">
+    <li><strong>Kennismaking</strong> U vertelt wat u wil doen en wat u zelf al kan. We spreken af wie wat doet.</li>
+    <li><strong>Materiaal en instructies</strong> We voorzien de materialen en leggen stap voor stap uit hoe u te werk gaat.</li>
+    <li><strong>Begeleiding tijdens het werk</strong> U kan bij ons terecht met vragen, en we komen kijken op de momenten die ertoe doen.</li>
+    <li><strong>Controle en aansluiting</strong> We controleren het geheel en zorgen dat de installatie klaar is voor de keuring.</li>
+  </ol>
+
+  <div class="callout">
+    <h3>Ook een zelfgebouwde installatie wordt gekeurd</h3>
+    <p>
+      Net als elke nieuwe elektrische installatie. Een zonne-installatie moet in België gekeurd worden door een erkend
+      keuringsorganisme voor u ze aanmeldt bij de netbeheerder. We begeleiden u zo dat de installatie klaar is voor die
+      keuring.
+    </p>
+  </div>
+</ServiceLayout>

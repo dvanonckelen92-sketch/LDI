@@ -1,0 +1,10 @@
+---
+interface Props { file: string; alt: string; eager?: boolean; sizes?: string }
+const { file, alt, eager = false, sizes = '(min-width: 900px) 460px, 100vw' } = Astro.props;
+const base = file.replace(/\.jpg$/, '');
+---
+<picture>
+  <source type="image/webp" srcset={`/img/${base}-600.webp 600w, /img/${base}-1200.webp 1200w`} sizes={sizes} />
+  <img src={`/img/${file}`} alt={alt} width="1200" height="900"
+    loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : undefined} />
+</picture>

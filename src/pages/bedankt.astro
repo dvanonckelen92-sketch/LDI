@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base
+  title="Bedankt voor uw vraag"
+  description="Uw vraag is goed aangekomen bij LDI Solutions. Lawrence neemt contact met u op om een gesprek of plaatsbezoek af te spreken."
+  noindex
+  cta={false}
+>
+  <section class="hero">
+    <div class="wrap narrow">
+      <h1>Bedankt, uw vraag is aangekomen</h1>
+      <p class="lead">
+        Lawrence neemt contact met u op om een gesprek of plaatsbezoek af te spreken. Is het dringend? Bel dan
+        <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>.
+      </p>
+      <p class="actions"><a class="btn btn-ghost" href="/realisaties/">Bekijk intussen ons werk</a></p>
+    </div>
+  </section>
+</Base>

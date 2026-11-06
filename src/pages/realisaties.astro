@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+---
+<Base
+  title="Realisaties in zonnepanelen en elektriciteit"
+  description="Foto's van installaties van LDI Solutions: zonnepanelen op schuine en platte daken, thuisbatterijen, omvormers en laadpalen bij woningen en bedrijven."
+  image="/img/zonnepanelen-loods.jpg"
+  crumbs={[{ name: 'Realisaties', href: '/realisaties/' }]}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1>Onze realisaties</h1>
+      <p class="lead narrow">
+        Als elektricien in de regio Kortijs doet LDI Solutions zowel traditionele elektriciteit als hernieuwbare energie.
+        Hieronder ziet u installaties die Lawrence geplaatst heeft, gefotografeerd op de werf zelf.
+      </p>
+
+      <h2>Zonnepanelen</h2>
+      <p>Op pannendaken, platte daken en het dak van een loods. Meer uitleg bij <a href="/zonnepanelen/">zonnepanelen laten plaatsen</a>.</p>
+      <Gallery cat="zonnepanelen" captions />
+
+      <h2>Thuisbatterijen en omvormers</h2>
+      <p>Batterijen in garages, bergingen en technische ruimtes, telkens naast de omvormer. Zie ook <a href="/thuisbatterij/">thuisbatterij laten installeren</a>.</p>
+      <Gallery cat={['thuisbatterij', 'elektriciteit']} captions />
+
+      <h2>Laadpalen</h2>
+      <p>Laadpalen voor elektrische wagens, binnen en buiten. Meer bij <a href="/laadpaal/">laadpaal thuis</a>.</p>
+      <Gallery cat="laadpaal" captions />
+    </div>
+  </section>
+</Base>

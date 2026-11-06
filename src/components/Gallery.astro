@@ -1,0 +1,21 @@
+---
+import images from '../data/images.json';
+import Photo from './Photo.astro';
+interface Props { cat?: string | string[]; limit?: number; captions?: boolean }
+const { cat, limit, captions = false } = Astro.props;
+const cats = cat ? (Array.isArray(cat) ? cat : [cat]) : null;
+let list = images.filter((i) => i.gallery !== false && (!cats || cats.includes(i.cat as string)));
+if (limit) list = list.slice(0, limit);
+---
+<ul class="gallery">
+  {list.map((img, i) => (
+    <li class="reveal" style={`transition-delay:${(i % 4) * 70}ms`}>
+      <figure>
+        <button type="button" data-full={`/img/${img.file}`} data-alt={img.alt} aria-label={`Vergroot: ${img.alt}`}>
+          <Photo file={img.file} alt={img.alt} sizes="(min-width: 900px) 270px, 50vw" />
+        </button>
+        {captions && <figcaption>{img.alt}</figcaption>}
+      </figure>
+    </li>
+  ))}
+</ul>

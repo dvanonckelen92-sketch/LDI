@@ -1,0 +1,64 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import Photo from '../components/Photo.astro';
+
+const faq = [
+  {
+    q: 'Heb ik zonnepanelen nodig voor een thuisbatterij?',
+    a: 'Een thuisbatterij haalt het meeste rendement wanneer ze stroom van uw eigen zonnepanelen opslaat. Hebt u nog geen panelen, dan bekijken we samen of het zinvol is om beide tegelijk te plaatsen. Zie ook <a href="/zonnepanelen/">zonnepanelen laten plaatsen</a>.',
+  },
+  {
+    q: 'Waar komt een thuisbatterij te staan?',
+    a: 'Meestal binnen, in een garage, berging of technische ruimte, dicht bij de omvormer. Op de foto\'s ziet u een paar opstellingen.',
+  },
+  {
+    q: 'Welk type batterij kies ik?',
+    a: 'Dat hangt af van uw zonne-installatie, uw omvormer en uw verbruik. We helpen u kiezen en zorgen dat de batterij goed samenwerkt met uw panelen.',
+  },
+];
+---
+<ServiceLayout
+  topic="thuisbatterij"
+  title="Thuisbatterij laten installeren"
+  description="Een thuisbatterij laten installeren bij uw zonnepanelen? LDI Solutions uit Gingelom kiest met u het juiste type en sluit ze aan, met slimme sturing."
+  crumb="Thuisbatterij"
+  h1="Een thuisbatterij laten installeren bij uw zonnepanelen"
+  lead="Met een thuisbatterij bewaart u de stroom van uw zonnepanelen en gebruikt u ze later, ook 's nachts of op een bewolkte dag. U wordt minder afhankelijk van het net en uw energiefactuur daalt."
+  heroImg="thuisbatterij-garage.jpg"
+  heroAlt="Omvormer en thuisbatterij tegen een muur in een garage"
+  cta="Vraag advies over een thuisbatterij"
+  highlights={['Afgestemd op uw omvormer en verbruik', 'Met slimme sturing', 'Ook zelf te plaatsen met begeleiding']}
+  galleryCats={['thuisbatterij', 'elektriciteit']}
+  galleryTitle="Thuisbatterijen die we geplaatst hebben"
+  faq={faq}
+>
+  <h2>Een batterij die past bij uw installatie</h2>
+  <p>
+    Niet elke batterij past bij elke zonne-installatie. We helpen u het juiste type kiezen voor uw panelen, uw omvormer
+    en uw verbruik, en zorgen voor een installatie die vlot samenwerkt met uw zonnepanelen.
+  </p>
+
+  <div class="svc-photos">
+    <figure><Photo file="thuisbatterij-berging.jpg" alt="Thuisbatterij in een berging" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>In een berging</figcaption></figure>
+    <figure><Photo file="thuisbatterij-technische-ruimte.jpg" alt="Omvormer en thuisbatterij in een technische ruimte" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Naast de omvormer in een technische ruimte</figcaption></figure>
+  </div>
+
+  <h2>Slimme sturing haalt meer uit uw batterij</h2>
+  <p>
+    Een batterij levert pas op als ze op het juiste moment laadt en ontlaadt. Met een slimme sturing volgt u de
+    prestaties van uw panelen en batterij op en laat u automatisch beslissen wanneer u stroom uit de batterij gebruikt
+    en wanneer het voordeliger is om van het net af te nemen. U kan de lading ook afstemmen op uw eigen verbruik.
+  </p>
+  <p>
+    Dat advies hoort er bij ons standaard bij. Hoe slimme sturingen in de rest van uw woning werken, leest u bij
+    <a href="/elektriciteitswerken/">elektriciteitswerken en domotica</a>.
+  </p>
+
+  <div class="callout">
+    <h3>Liever zelf installeren?</h3>
+    <p>
+      Dat kan met onze hulp. We begeleiden u bij de keuze en bij de installatie, zodat alles veilig en efficiënt
+      aangesloten wordt. Meer bij <a href="/zelfbouw-met-begeleiding/">zelfbouw met begeleiding</a>.
+    </p>
+  </div>
+</ServiceLayout>

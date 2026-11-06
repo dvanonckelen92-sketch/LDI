@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, socials } from '../data/site';
+
+const topics = [
+  { v: 'elektriciteit', l: 'Elektriciteit of domotica' },
+  { v: 'zonnepanelen', l: 'Zonnepanelen' },
+  { v: 'thuisbatterij', l: 'Thuisbatterij' },
+  { v: 'laadpaal', l: 'Laadpaal' },
+  { v: 'zelfbouw', l: 'Zelfbouw met begeleiding' },
+  { v: 'andere', l: 'Iets anders' },
+];
+---
+<Base
+  title="Contact en vrijblijvend gesprek"
+  description="Contacteer LDI Solutions, Abdijstraat 1G in Kortijs (Gingelom). Vul het formulier in, bel 0477 73 98 27 of mail info@ldisolutions.be."
+  crumbs={[{ name: 'Contact', href: '/contact/' }]}
+  cta={false}
+>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Vertel wat u van plan bent</h1>
+      <p class="lead">
+        Een paar regels volstaan. Lawrence leest elke aanvraag zelf en neemt contact met u op om een gesprek of
+        plaatsbezoek af te spreken.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div id="formulier">
+        <form class="form" name="contact" method="POST" action="/bedankt/" data-netlify="true" netlify-honeypot="website">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hp"><label>Laat dit veld leeg <input name="website" tabindex="-1" autocomplete="off" /></label></p>
+
+          <fieldset class="chips full">
+            <legend>Waarover gaat het?</legend>
+            {topics.map((t, i) => (
+              <label><input type="radio" name="onderwerp" value={t.v} required={i === 0} /><span>{t.l}</span></label>
+            ))}
+          </fieldset>
+
+          <div>
+            <label for="naam">Naam</label>
+            <input id="naam" name="naam" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="gemeente">Gemeente <span class="opt">(optioneel)</span></label>
+            <input id="gemeente" name="gemeente" autocomplete="address-level2" />
+          </div>
+          <div>
+            <label for="email">E-mailadres</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label for="telefoon">Telefoon <span class="opt">(optioneel)</span></label>
+            <input id="telefoon" name="telefoon" type="tel" autocomplete="tel" />
+          </div>
+          <div class="full">
+            <label for="bericht">Uw vraag</label>
+            <textarea id="bericht" name="bericht" required placeholder="Bijvoorbeeld: rijwoning met pannendak op het zuiden, we denken aan zonnepanelen en later een laadpaal."></textarea>
+          </div>
+          <p class="small full" style="margin:0">
+            We gebruiken uw gegevens enkel om uw vraag te beantwoorden. Meer in de <a href="/privacy/">privacyverklaring</a>.
+          </p>
+          <button class="btn full" type="submit">Verstuur uw vraag</button>
+        </form>
+      </div>
+
+      <div>
+        <h2 style="margin-top:0">Liever rechtstreeks?</h2>
+        <ul class="facts">
+          <li><strong>Telefoon</strong><br /><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></li>
+          <li><strong>E-mail</strong><br /><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          {socials.map((s) => <li><strong>{s.name}</strong><br /><a href={s.url} rel="noopener" target="_blank">Volg LDI Solutions</a></li>)}
+          {site.googleProfile && <li><strong>Google</strong><br /><a href={site.googleProfile} rel="noopener" target="_blank">Bedrijfsprofiel en reviews</a></li>}
+        </ul>
+
+        <h2>Adres</h2>
+        <address>
+          {site.legalName}<br />
+          {site.street}<br />
+          {site.postalCode} {site.locality} ({site.municipality})<br />
+          Ondernemingsnummer {site.vat}
+        </address>
+        <iframe
+          class="map"
+          title="Kaart met de ligging van LDI Solutions, Abdijstraat 1G in Kortijs"
+          src="https://www.google.com/maps?q=Abdijstraat+1G,+3890+Gingelom&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p class="small"><a href="https://www.google.com/maps/search/?api=1&query=Abdijstraat+1G+3890+Gingelom" rel="noopener">Route in Google Maps</a></p>
+
+        <h2>Wat helpt bij een eerste gesprek?</h2>
+        <ul>
+          <li>Een paar foto's van uw groepenkast, uw dak of de plek waar de laadpaal moet komen.</li>
+          <li>Uw jaarverbruik, als u het bij de hand hebt. Het staat op uw jaarafrekening.</li>
+          <li>Wat u de komende jaren van plan bent, zoals een elektrische wagen of een verbouwing.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Onderwerp voorselecteren als de bezoeker van een dienstpagina komt (?onderwerp=zonnepanelen)
+    const o = new URLSearchParams(location.search).get('onderwerp');
+    const r = o && document.querySelector<HTMLInputElement>(`input[name="onderwerp"][value="${CSS.escape(o)}"]`);
+    if (r) r.checked = true;
+  </script>
+</Base>

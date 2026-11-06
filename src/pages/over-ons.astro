@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import { site } from '../data/site';
+import { services } from '../data/services';
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.owner,
+  jobTitle: site.ownerRole,
+  worksFor: { '@id': `${site.url}/#bedrijf` },
+};
+
+const ways = [
+  {
+    title: 'Zelf op de werf',
+    text: 'Lawrence plant het werk en voert het zelf uit, van de zonnepanelen op het dak tot de kabels in de groepenkast. Wie de offerte maakt, legt de installatie ook aan.',
+    img: 'zonnepanelen-pannendak.jpg',
+    alt: 'Bakstenen rijwoning met zonnepanelen op het dak',
+  },
+  {
+    title: 'Elk detail nagekeken',
+    text: 'Voor hij oplevert, controleert hij alles: de aansluitingen, de afwerking, de werking van elk toestel. Kabels worden netjes weggewerkt in buizen en goten.',
+    img: 'omvormer-kabelgoten.jpg',
+    alt: 'Omvormer met kabelgoten in een hoek van een berging',
+  },
+  {
+    title: 'Woning of bedrijf',
+    text: 'Een rijwoning, een uitbouw met plat dak of een loods: de aanpak blijft dezelfde. Eerst kijken wat er is en wat u nodig hebt, dan pas een voorstel.',
+    img: 'zonnepanelen-loods.jpg',
+    alt: 'Zonnepanelen op het dak van een loods',
+  },
+];
+---
+<Base
+  title="Over Lawrence Dirix, uw elektricien"
+  description="Bij LDI Solutions voert zaakvoerder en elektricien Lawrence Dirix de projecten zelf uit, van zonnepanelen tot elektriciteitswerken. Zo werkt hij."
+  crumbs={[{ name: 'Over ons', href: '/over-ons/' }]}
+  schema={[person]}
+>
+  <section class="about-hero">
+    <div class="wrap about-hero-grid">
+      <div>
+        <h1>Lawrence Dirix, zaakvoerder en elektricien</h1>
+        <p class="svc-lead">
+          LDI Solutions is het bedrijf van Lawrence Dirix, elektricien uit Kortijs. Hij leidt de zaak en staat elke dag
+          zelf op de werf.
+        </p>
+        <p>
+          Lawrence voert de projecten zelf uit, van zonnepanelen en thuisbatterijen tot elektriciteitswerken en laadpalen.
+          Hij brengt daar jarenlange ervaring in mee, en neemt de tijd om elk detail te controleren voor hij oplevert. Dat
+          geeft een installatie waar u jaren op kan rekenen.
+        </p>
+        <div class="actions">
+          <a class="btn" href="/contact/#formulier">Contacteer Lawrence</a>
+          <a class="btn btn-outline-light" href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+        </div>
+      </div>
+
+      <div class="board fiche">
+        <p class="board-top">Bedrijfsfiche</p>
+        <dl class="board-fields">
+          <div><dt>Bedrijf</dt><dd>{site.legalName}</dd></div>
+          <div><dt>Zaakvoerder</dt><dd>{site.owner}, elektricien</dd></div>
+          <div><dt>Opgericht</dt><dd>september 2024</dd></div>
+          <div><dt>Adres</dt><dd>{site.street}<br />{site.postalCode} {site.locality} ({site.municipality})</dd></div>
+          <div><dt>Klanten</dt><dd>Particulieren en bedrijven</dd></div>
+          <div><dt>Werkgebied</dt><dd>{site.municipality} en omgeving</dd></div>
+          <div><dt>Ond.-nr.</dt><dd>{site.vat}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 style="margin-top:0">Hoe Lawrence werkt</h2>
+      <ul class="ways">
+        {ways.map((w) => (
+          <li class="reveal">
+            <Photo file={w.img} alt={w.alt} sizes="(min-width: 900px) 360px, 100vw" />
+            <h3>{w.title}</h3>
+            <p>{w.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap about-split">
+      <div class="mosaic reveal">
+        <Photo file="laadpaal-wallbox.jpg" alt="Growatt-laadpaal met LDI Solutions-sticker aan de muur" sizes="(min-width: 900px) 260px, 50vw" />
+        <Photo file="zonnepanelen-pannendak-2.jpg" alt="Zwarte zonnepanelen op een pannendak" sizes="(min-width: 900px) 260px, 50vw" />
+        <Photo file="thuisbatterij-garage.jpg" alt="Omvormer en thuisbatterij tegen een muur in een garage" sizes="(min-width: 900px) 260px, 50vw" />
+        <Photo file="zonnepanelen-plat-dak-2.jpg" alt="Zonnepanelen op een plat dak met bomen op de achtergrond" sizes="(min-width: 900px) 260px, 50vw" />
+      </div>
+      <div class="reveal">
+        <h2 style="margin-top:0">Van groepenkast tot dak</h2>
+        <p>
+          Lawrence doet zowel de gewone elektriciteit als de zonnepanelen, de batterij en de laadpaal. U regelt dus alles
+          met dezelfde elektricien. Wat hij vandaag aanlegt, houdt rekening met wat er later nog bij kan komen.
+        </p>
+        <ul class="about-services">
+          {services.map((s) => (
+            <li><a href={s.href}>{s.title}</a><span>{s.text}</span></li>
+          ))}
+        </ul>
+        <p class="actions"><a class="btn btn-ghost" href="/realisaties/">Bekijk de realisaties</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

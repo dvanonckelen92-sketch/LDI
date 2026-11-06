@@ -1,0 +1,136 @@
+---
+// Gedeelde opmaak voor de vijf dienstpagina's.
+import Base from './Base.astro';
+import Photo from '../components/Photo.astro';
+import Faq from '../components/Faq.astro';
+import images from '../data/images.json';
+import { services } from '../data/services';
+import { site } from '../data/site';
+
+interface Props {
+  topic: string;            // dienst-sleutel, ook het onderwerp in het formulier
+  title: string;            // <title> zonder merk
+  description: string;
+  crumb: string;
+  h1: string;
+  lead: string;
+  heroImg: string;
+  heroAlt: string;
+  cta: string;
+  highlights: string[];     // korte punten in de hero
+  galleryCats: string[];
+  galleryTitle: string;
+  faq: { q: string; a: string }[];
+}
+
+const p = Astro.props;
+const photos = images.filter((i) => p.galleryCats.includes(i.cat as string));
+const related = services.filter((s) => s.key !== p.topic).slice(0, 4);
+const formLink = `/contact/?onderwerp=${p.topic}#formulier`;
+---
+<Base title={p.title} description={p.description} image={`/img/${p.heroImg}`} crumbs={[{ name: p.crumb, href: Astro.url.pathname }]}>
+  <section class="svc-hero">
+    <div class="svc-hero-text">
+      <h1>{p.h1}</h1>
+      <p class="svc-lead">{p.lead}</p>
+      <ul class="svc-checks">
+        {p.highlights.map((h) => <li>{h}</li>)}
+      </ul>
+      <div class="actions">
+        <a class="btn" href={formLink}>{p.cta}</a>
+        <a class="btn btn-outline-light" href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+      </div>
+    </div>
+    <div class="svc-hero-photo">
+      <Photo file={p.heroImg} alt={p.heroAlt} eager sizes="(min-width: 960px) 50vw, 100vw" />
+    </div>
+  </section>
+
+  <div class="wrap svc-body">
+    <article class="svc-main">
+      <slot />
+    </article>
+
+    <aside class="svc-aside">
+      <div class="svc-sticky">
+        <nav class="svc-toc" aria-label="Op deze pagina">
+          <p class="svc-aside-title">Op deze pagina</p>
+          <ol></ol>
+        </nav>
+        <div class="svc-card">
+          <p class="svc-aside-title">Vraag het aan Lawrence</p>
+          <p>Hij komt zelf kijken en zegt u eerlijk wat zinvol is voor uw woning.</p>
+          <a class="btn" href={formLink}>Stuur uw vraag</a>
+          <p class="small" style="margin:.8em 0 0">of bel <a href={`tel:${site.phoneIntl}`}>{site.phone}</a></p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  {photos.length > 0 && (
+    <section class="svc-strip">
+      <div class="wrap svc-strip-head">
+        <h2>{p.galleryTitle}</h2>
+        <a href="/realisaties/">Alle realisaties</a>
+      </div>
+      <ul class="strip gallery">
+        {photos.map((img) => (
+          <li>
+            <figure>
+              <button type="button" data-full={`/img/${img.file}`} data-alt={img.alt} aria-label={`Vergroot: ${img.alt}`}>
+                <Photo file={img.file} alt={img.alt} sizes="320px" />
+              </button>
+              <figcaption>{img.alt}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap svc-faq">
+      <Faq items={p.faq} />
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Ook interessant</h2>
+      <ul class="related">
+        {related.map((s) => (
+          <li>
+            <a href={s.href}>
+              <Photo file={s.img} alt={s.alt} sizes="(min-width: 900px) 280px, 50vw" />
+              <span class="related-title">{s.title}</span>
+              <span class="related-text">{s.text}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    // Inhoudstafel opbouwen uit de h2's in de tekst en de actieve sectie markeren
+    const main = document.querySelector('.svc-main');
+    const list = document.querySelector('.svc-toc ol');
+    if (main && list) {
+      const heads = [...main.querySelectorAll('h2')];
+      heads.forEach((h) => {
+        if (!h.id) h.id = h.textContent!.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        list.insertAdjacentHTML('beforeend', `<li><a href="#${h.id}">${h.textContent}</a></li>`);
+      });
+      const links = [...list.querySelectorAll('a')];
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#${e.target.id}`));
+          });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        heads.forEach((h) => io.observe(h));
+      }
+    }
+  </script>
+</Base>

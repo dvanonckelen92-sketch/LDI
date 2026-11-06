@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base
+  title="Privacyverklaring"
+  description="Hoe LDI Solutions omgaat met de gegevens die u via het contactformulier, per e-mail of telefonisch doorgeeft, en welke rechten u daarbij hebt."
+  crumbs={[{ name: 'Privacyverklaring', href: '/privacy/' }]}
+  cta={false}
+>
+  <section class="section">
+    <div class="wrap narrow">
+      <h1>Privacyverklaring</h1>
+      <p>
+        {site.legalName}, {site.street}, {site.postalCode} {site.locality} ({site.municipality}), ondernemingsnummer
+        {site.vat}, is verantwoordelijk voor de verwerking van uw persoonsgegevens via deze website.
+      </p>
+
+      <h2>Welke gegevens en waarom</h2>
+      <p>
+        Via het contactformulier vragen we uw naam, e-mailadres, en als u dat wil uw telefoonnummer en gemeente, samen
+        met uw vraag. We gebruiken die gegevens alleen om uw vraag te beantwoorden en, als u dat wenst, een offerte op
+        te maken en op te volgen. De rechtsgrond is uw verzoek om contact en, bij een opdracht, de uitvoering van de
+        overeenkomst.
+      </p>
+
+      <h2>Hoe lang</h2>
+      <p>
+        We bewaren uw gegevens zolang dat nodig is om uw vraag of opdracht af te handelen, en daarna enkel wat we
+        wettelijk moeten bijhouden, zoals facturen.
+      </p>
+
+      <h2>Met wie we gegevens delen</h2>
+      <p>
+        We verkopen of verhuren uw gegevens niet. Deze website wordt gehost door Netlify, Inc., dat ook de berichten van
+        het contactformulier technisch verwerkt en bewaart tot wij ze verwijderen. Netlify is gevestigd in de Verenigde
+        Staten; de doorgifte gebeurt op basis van de waarborgen die de Europese privacywetgeving daarvoor voorziet. Op de contactpagina staat een kaart van Google Maps; Google kan daarbij gegevens verwerken volgens zijn
+        eigen privacybeleid.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>Deze website plaatst zelf geen tracking- of advertentiecookies.</p>
+
+      <h2>Uw rechten</h2>
+      <p>
+        U kan altijd vragen welke gegevens we van u hebben, ze laten verbeteren of laten wissen. Mail daarvoor naar
+        <a href={`mailto:${site.email}`}>{site.email}</a>. Bent u niet tevreden over hoe we met uw gegevens omgaan, dan
+        kan u terecht bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be).
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,83 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import Photo from '../components/Photo.astro';
+
+const faq = [
+  {
+    q: 'Plaatst LDI Solutions zonnepanelen op een plat dak?',
+    a: 'Ja. Op een plat dak plaatsen we de panelen op een onderstructuur onder een hoek. Bij de <a href="/realisaties/">realisaties</a> ziet u zowel platte als schuine daken.',
+  },
+  {
+    q: 'Hoeveel zonnepanelen heb ik nodig?',
+    a: 'Dat hangt af van uw verbruik, de oriëntatie van uw dak en de ruimte die er is. Daarom begint elk project met een gesprek over uw verbruik en een blik op het dak. Een standaardaantal geven zonder dat te kennen, doen we niet.',
+  },
+  {
+    q: 'Kan ik later nog een thuisbatterij of laadpaal toevoegen?',
+    a: 'Ja, en daar houden we bij het ontwerp rekening mee. Vertel ons wat u de komende jaren van plan bent, dan kiezen we een omvormer en een opstelling die dat toelaten.',
+  },
+  {
+    q: 'Kan ik de zonnepanelen zelf leggen?',
+    a: 'Dat kan, met onze begeleiding. Wij leveren het materiaal en de instructies en volgen het op. Hoe dat werkt, leest u bij <a href="/zelfbouw-met-begeleiding/">zelfbouw met begeleiding</a>.',
+  },
+];
+---
+<ServiceLayout
+  topic="zonnepanelen"
+  title="Zonnepanelen laten plaatsen in Haspengouw"
+  description="Zonnepanelen laten plaatsen op een schuin of plat dak? LDI Solutions uit Gingelom zorgt voor advies, ontwerp en installatie, afgestemd op uw verbruik."
+  crumb="Zonnepanelen"
+  h1="Zonnepanelen laten plaatsen in Gingelom en Haspengouw"
+  lead="Met zonnepanelen wekt u zelf stroom op voor uw woning of bedrijf. LDI Solutions doet het volledige traject: advies, ontwerp en installatie, afgestemd op uw verbruik en de ruimte op uw dak."
+  heroImg="zonnepanelen-schuin-dak.jpg"
+  heroAlt="Zwarte zonnepanelen op een schuin pannendak"
+  cta="Vraag advies voor uw dak"
+  highlights={['Schuine en platte daken', 'Berekend op uw jaarverbruik', 'Lawrence plaatst de panelen zelf']}
+  galleryCats={['zonnepanelen']}
+  galleryTitle="Zonnepanelen die we geplaatst hebben"
+  faq={faq}
+>
+  <h2>Een installatie die past bij uw verbruik</h2>
+  <p>
+    Hoeveel panelen, welke omvormer en welke opstelling: dat hangt af van uw jaarverbruik en van wat uw dak toelaat. We
+    rekenen het uit voor uw woning en vertrekken niet van een vast pakket.
+  </p>
+  <p>
+    Vertel ons ook waarom u eraan begint. Wie vooral de factuur wil drukken, kiest soms anders dan wie zoveel mogelijk
+    zelf wil opwekken.
+  </p>
+
+  <h2>Wat u van ons krijgt</h2>
+  <ul class="facts">
+    <li><strong>Advies</strong><br />over het aantal panelen, de opstelling en de omvormer</li>
+    <li><strong>Ontwerp</strong><br />op maat van uw dak, schuin of plat</li>
+    <li><strong>Installatie</strong><br />door Lawrence zelf, met nette kabelafwerking</li>
+    <li><strong>Slimme sturing</strong><br />zodat u zoveel mogelijk van uw eigen stroom gebruikt</li>
+  </ul>
+
+  <div class="svc-photos">
+    <figure><Photo file="zonnepanelen-plat-dak-2.jpg" alt="Zonnepanelen op een plat dak met bomen op de achtergrond" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Plat dak, panelen onder een hoek</figcaption></figure>
+    <figure><Photo file="zonnepanelen-loods.jpg" alt="Zonnepanelen op het dak van een loods" sizes="(min-width: 1000px) 370px, 50vw" /><figcaption>Dak van een loods</figcaption></figure>
+  </div>
+
+  <h2>Samen met een thuisbatterij en slimme sturing</h2>
+  <p>
+    Overdag wekken zonnepanelen vaak meer op dan u op dat moment verbruikt. Met een
+    <a href="/thuisbatterij/">thuisbatterij</a> bewaart u dat overschot voor 's avonds. Met een slimme sturing laat u
+    toestellen draaien of uw wagen laden op het moment dat de zon schijnt. Zo haalt u meer uit dezelfde panelen.
+  </p>
+  <div class="callout">
+    <h3>Komt er later een batterij of laadpaal bij?</h3>
+    <p>
+      Zeg het ons vooraf. Dan kiezen we nu een omvormer die daar klaar voor is, en hoeft u later niets te vervangen.
+      Meer over een <a href="/laadpaal/">laadpaal thuis</a>.
+    </p>
+  </div>
+
+  <h2>Woning of bedrijf</h2>
+  <p>
+    We plaatsen zonnepanelen voor particulieren en voor bedrijven. Op een woning gaat het meestal om een schuin
+    pannendak of een plat dak van een uitbouw; bij bedrijven ook om grotere daken van loodsen en bedrijfspanden. Moet de
+    installatie eerst aangepast of uitgebreid worden, dan doen we die
+    <a href="/elektriciteitswerken/">elektriciteitswerken</a> meteen mee.
+  </p>
+</ServiceLayout>
