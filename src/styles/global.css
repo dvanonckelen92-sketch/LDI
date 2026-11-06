@@ -182,21 +182,13 @@ p, ul, ol { margin: 0 0 1em; }
 .cta-inner { display: grid; gap: 22px; align-items: center; position: relative; }
 @media (min-width: 900px) { .cta-inner { grid-template-columns: 1fr auto; } }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.site-footer { background: #0b1f13; color: #b9c9bd; padding: 48px 0 96px; }
-@media (min-width: 700px) { .site-footer { padding-bottom: 24px; } }
+.site-footer { background: #0b1f13; color: #b9c9bd; padding: 48px 0 24px; }
 .site-footer a { color: #fff; }
 .site-footer .small { color: #8fa595; }
 .footer-grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .footer-title { font: 700 1.05rem var(--head); color: #fff; margin-bottom: .6em; }
 address { font-style: normal; margin-bottom: 1em; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 28px; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 20px; }
-
-/* Mobiele belbalk */
-.callbar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; background: var(--forest); border-radius: 999px; box-shadow: 0 12px 30px rgba(0,0,0,.25); transform: translateY(140%); transition: transform .35s var(--ease); }
-.scrolled .callbar { transform: none; }
-.callbar a { text-align: center; text-decoration: none; font-weight: 700; padding: 12px; border-radius: 999px; color: #fff; }
-.callbar a:last-child { background: var(--sun); color: var(--forest); }
-@media (min-width: 700px) { .callbar { display: none; } }
 
 .map { width: 100%; aspect-ratio: 4/3; border: 0; border-radius: var(--radius); }
 
@@ -374,4 +366,5 @@ address { font-style: normal; margin-bottom: 1em; }
 .about-services li { border-bottom: 1px solid var(--line); padding: 12px 0; display: grid; gap: 2px; }
 .about-services a { font-weight: 700; font-size: 1.1rem; }
 .about-services span { color: var(--muted); font-size: 1rem; }
-.footer-bottom .credit { margin-left: auto; }
+.footer-bottom { flex-direction: column; align-items: flex-start; }
+@media (min-width: 700px) { .footer-bottom { flex-direction: row; align-items: baseline; } .footer-bottom .credit { margin-left: auto; } }
